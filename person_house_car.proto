@@ -1,0 +1,48 @@
+
+syntax = "proto3";
+
+package tutorial;
+
+message Person{
+
+     int32 old = 1;
+     bool has_license = 3 ;
+     string name = 2;
+
+    message CHILDREN{
+        string nb_children =1;
+    }
+
+     repeated  CHILDREN children=4;
+}
+
+message House{
+
+    enum HOUSE_TYPE
+    {
+        WOOD=0;
+        CEMENT=1;
+    }
+    HOUSE_TYPE type = 2;
+     Person owner = 1;
+    int32 number_of_floors=3;
+
+}
+
+message Car{
+    enum CAR_TYPE
+    {
+        GAS=0;
+        OIL=1;
+        HYBRID=2;
+    }
+      Person owner=1;
+    CAR_TYPE type= 2;
+    int32 number_of_wheel=3;
+
+}
+
+message DataToSend{
+     House house=1;
+      Car car=2;
+}
